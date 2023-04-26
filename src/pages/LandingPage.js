@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Header from "parts/Header";
+import Header from "parts/header";
 import landingPage from "json/landingPage.json";
 import Hero from "parts/Hero";
 
