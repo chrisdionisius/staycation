@@ -58,7 +58,7 @@ export default function Button(props) {
   }
   return (
     <button
-      lassName={className.join(" ")}
+      className={className.join(" ")}
       style={props.style}
       onClick={onClick}
     >
@@ -73,11 +73,12 @@ Button.propTypes = {
   href: PropTypes.string,
   target: PropTypes.string,
   className: PropTypes.string,
+  isPrimary: PropTypes.bool,
+  isExternal: PropTypes.bool,
   isDisabled: PropTypes.bool,
   isLoading: PropTypes.bool,
   isSmall: PropTypes.bool,
   isLarge: PropTypes.bool,
   isBlock: PropTypes.bool,
-  isExternal: PropTypes.bool,
   hasShadow: PropTypes.bool,
 };
