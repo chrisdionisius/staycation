@@ -26,7 +26,7 @@ export default function Number(props) {
         },
       });
       setInputValue(
-        `${prefix}${value} ${suffix}${isSuffixPlural && value > 1 ? "s" : ""}`
+        `${prefix}${value}${suffix}${isSuffixPlural && value > 1 ? "s" : ""}`
       );
     }
   };
