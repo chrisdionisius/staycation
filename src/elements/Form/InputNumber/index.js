@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import "./index.scss";
 
 export default function Number(props) {
-  const { value, placeholder, name, min, max, prefix, suffix } = props;
+  const { value, placeholder, name, min, max, prefix, suffix, isSuffixPlural } =
+    props;
 
   const [inputValue, setInputValue] = useState(`${prefix}${value}${suffix}`);
 
@@ -24,7 +25,9 @@ export default function Number(props) {
           value: +value,
         },
       });
-      setInputValue(`${prefix}${value}${suffix}`);
+      setInputValue(
+        `${prefix}${value} ${suffix}${isSuffixPlural && value > 1 ? "s" : ""}`
+      );
     }
   };
 
@@ -86,6 +89,7 @@ Number.defaultProps = {
 Number.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onChange: PropTypes.func,
+  isSuffixPlural: PropTypes.bool,
   placeholder: PropTypes.string,
   outerClassName: PropTypes.string,
 };
