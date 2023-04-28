@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { InputNumber, InputDate } from "elements/Form";
+import Button from "elements/Button";
 
 export default class BookingForm extends Component {
   constructor(props) {
@@ -96,6 +97,9 @@ export default class BookingForm extends Component {
             {data.duration} {itemDetails.unit}
           </span>
         </h6>
+        <Button className="btn" hasShadow isPrimary isBlock onClick="">
+          Continue to Book
+        </Button>
       </div>
     );
   }
