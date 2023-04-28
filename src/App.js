@@ -10,11 +10,11 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {/* <Switch> */}
-        <Route exact path="/" component={LandingPage} />
-        <Route path="/properties/:id" component={DetailsPage} />
-        {/* <Route path="/example" component={Example} /> */}
-        {/* </Switch> */}
+        <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <Route path="/properties/:id" component={DetailsPage} />
+          {/* <Route path="/example" component={Example} /> */}
+        </Switch>
       </BrowserRouter>
     </div>
   );

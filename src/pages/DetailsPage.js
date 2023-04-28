@@ -2,6 +2,7 @@ import PageDetailTitle from "parts/PageDetailTitle";
 import Header from "parts/header";
 import React, { Component } from "react";
 import ItemDetails from "json/itemDetails.json";
+import FeaturedImage from "parts/FeaturedImage";
 
 export default class DetailsPage extends Component {
   componentDidMount() {
@@ -17,6 +18,7 @@ export default class DetailsPage extends Component {
       <>
         <Header {...this.props} />
         <PageDetailTitle breadcrumb={breadcrumb} data={ItemDetails} />
+        <FeaturedImage data={ItemDetails.imageUrls} />
       </>
     );
   }
