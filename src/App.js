@@ -5,6 +5,7 @@ import DetailsPage from "pages/DetailsPage";
 import Example from "pages/Example";
 
 import "assets/scss/style.scss";
+import Checkout from "pages/Checkout";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route exact path="/" component={LandingPage} />
           <Route path="/properties/:id" component={DetailsPage} />
           <Route path="/example" component={Example} />
+          <Route path="/checkout" component={Checkout} />
         </Switch>
       </BrowserRouter>
     </div>
