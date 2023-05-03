@@ -1,6 +1,6 @@
 import BookingInformation from "parts/Checkout/BookingInformation";
 import Header from "parts/header";
-import { connect } from "react-redux";
+import { connect } from "react-redux"; // connects a React component to a Redux store.
 import React, { Component } from "react";
 import ItemDetails from "json/itemDetails.json";
 import Payment from "parts/Checkout/Payment";
@@ -12,7 +12,6 @@ import MainContent from "elements/Stepper/MainContent";
 import Button from "elements/Button";
 import { Fade } from "react-reveal";
 import Controller from "elements/Stepper/Controller";
-import { checkoutBooking } from "store/actions/checkout";
 
 class Checkout extends Component {
   state = {
@@ -187,8 +186,9 @@ class Checkout extends Component {
     );
   }
 }
-
+// pass current state as component props
 const mapStateToProps = (state) => ({
   checkout: state.checkout,
 });
+// export using connect so this component will be connected to redux ehe
 export default connect(mapStateToProps)(Checkout);

@@ -1,6 +1,6 @@
 import PageDetailTitle from "parts/PageDetailTitle";
 import Header from "parts/header";
-import { connect } from "react-redux";
+import { connect } from "react-redux"; // connects a React component to a Redux store.
 import React, { Component } from "react";
 import ItemDetails from "json/itemDetails.json";
 import FeaturedImage from "parts/FeaturedImage";
@@ -10,7 +10,7 @@ import Categories from "parts/Categories";
 import Testimony from "parts/Testimony";
 import Footer from "parts/Footer";
 import { Fade } from "react-reveal";
-import { checkoutBooking } from "store/actions/checkout";
+import { checkoutBooking } from "store/actions/checkout"; // import this to call a dispatch or change the state
 
 class DetailsPage extends Component {
   componentDidMount() {

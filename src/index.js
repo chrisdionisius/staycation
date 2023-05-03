@@ -8,9 +8,11 @@ import store from "store";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    {/* Add provider for redux */}
     <Provider store={store}>
       <App />
     </Provider>
+    {/* Add provider for redux */}
   </React.StrictMode>
 );
 
