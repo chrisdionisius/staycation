@@ -1,7 +1,7 @@
 import React from "react";
-import "./index.scss";
+import Fade from "react-reveal/Fade";
 import PropTypes from "prop-types";
-import { Fade } from "react-reveal";
+import "./index.scss";
 
 export default function Numbering({ style, className, data, current }) {
   const KeysOfData = Object.keys(data);

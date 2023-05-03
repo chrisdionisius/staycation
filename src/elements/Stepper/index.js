@@ -23,6 +23,6 @@ export default function Stepper(props) {
 }
 
 Stepper.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.object,
   initialStep: PropTypes.string,
 };
