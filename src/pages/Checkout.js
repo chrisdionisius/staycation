@@ -1,5 +1,6 @@
 import BookingInformation from "parts/Checkout/BookingInformation";
 import Header from "parts/header";
+import { connect } from "react-redux";
 import React, { Component } from "react";
 import ItemDetails from "json/itemDetails.json";
 import Payment from "parts/Checkout/Payment";
@@ -11,8 +12,9 @@ import MainContent from "elements/Stepper/MainContent";
 import Button from "elements/Button";
 import { Fade } from "react-reveal";
 import Controller from "elements/Stepper/Controller";
+import { checkoutBooking } from "store/actions/checkout";
 
-export default class Checkout extends Component {
+class Checkout extends Component {
   state = {
     data: {
       firstName: "",
@@ -38,9 +40,29 @@ export default class Checkout extends Component {
   }
   render() {
     const { data } = this.state;
-    const checkout = {
-      duration: 3,
-    };
+    const { checkout } = this.props;
+
+    // check if user directly access checkout page before choosing the room :)
+    if (!checkout) {
+      return (
+        <div
+          className="row align-items-center justify-content-center text-center"
+          style={{ height: "100vh" }}
+        >
+          <div className="col-3">
+            Pilih kamar dulu
+            <div>
+              <Button className="btn mt-5" type="link" href="/" isLight>
+                Back
+              </Button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    // end check
+
+    // normal flow
     const steps = {
       bookingInformation: {
         title: "Booking Information",
@@ -165,3 +187,8 @@ export default class Checkout extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  checkout: state.checkout,
+});
+export default connect(mapStateToProps)(Checkout);
