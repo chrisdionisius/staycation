@@ -3,7 +3,6 @@ import { Fade } from "react-reveal";
 import { InputText } from "elements/Form";
 
 export default function BookingInformation(props) {
-  console.log(props);
   const { data, ItemDetails, checkout } = props;
   return (
     <Fade>

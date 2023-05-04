@@ -17,10 +17,7 @@ class LandingPage extends Component {
     window.title = "Staycation | Home";
     window.scrollTo(0, 0);
     if (!this.props.page.landingPage) {
-      this.props.fetchPage(
-        "http://localhost:5000/api/v1/member/landing-page",
-        "landingPage"
-      );
+      this.props.fetchPage("/landing-page", "landingPage");
     }
   }
   render() {
