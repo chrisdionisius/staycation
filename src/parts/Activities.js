@@ -1,5 +1,5 @@
 import React from "react";
-import Fade from "react-reveal/Fade";
+import { Fade } from "react-awesome-reveal";
 
 import Button from "elements/Button";
 
@@ -8,7 +8,7 @@ export default function Activities({ data }) {
 
   return (
     <section className="container">
-      <Fade bottom>
+      <Fade bottom triggerOnce>
         <h4 className="mb-3 font-weight-medium">Activities</h4>
         <div className="container-grid">
           {data.map((item, index2) => {
@@ -17,7 +17,7 @@ export default function Activities({ data }) {
                 className="item column-3 row-1"
                 key={`activity-item-${index2}`}
               >
-                <Fade bottom delay={300 * index2}>
+                <Fade bottom delay={300 * index2} triggerOnce>
                   <div className="card">
                     {item.isPopular && (
                       <div className="tag">

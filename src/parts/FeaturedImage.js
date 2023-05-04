@@ -1,5 +1,5 @@
 import React from "react";
-import { Fade } from "react-reveal";
+import { Fade } from "react-awesome-reveal";
 
 export default function FeaturedImage({ data }) {
   return (
@@ -13,7 +13,7 @@ export default function FeaturedImage({ data }) {
                 index > 0 ? "row-1" : "row-2"
               }`}
             >
-              <Fade bottom delay={300 * index}>
+              <Fade bottom delay={300 * index} triggerOnce>
                 <div className="card h-100">
                   <figure className="img-wrapper">
                     <img

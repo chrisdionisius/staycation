@@ -1,11 +1,11 @@
 import Breadcrumb from "elements/Breadcrumb";
 import React from "react";
-import Fade from "react-reveal/Fade";
+import { Fade } from "react-awesome-reveal";
 
 export default function PageDetailTitle({ data, breadcrumb }) {
   return (
     <section className="container spacing-sm">
-      <Fade bottom>
+      <Fade bottom triggerOnce>
         <div className="row align-items-center">
           {/* col = it'll take every possible space left */}
           <div className="col">

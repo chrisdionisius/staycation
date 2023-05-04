@@ -1,6 +1,6 @@
 import Button from "elements/Button";
 import React from "react";
-import { Fade } from "react-reveal";
+import { Fade } from "react-awesome-reveal";
 
 export default function Categories({ data }) {
   return data.map((category, categoryIndex) => {
@@ -10,7 +10,7 @@ export default function Categories({ data }) {
     }
     return (
       <section className="container" key={categoryIndex}>
-        <Fade bottom>
+        <Fade bottom triggerOnce>
           <h4 className="mb-3 font-weight-medium">{category.name}</h4>
           <div className="container-grid">
             {category.itemId.map((item, index) => {
@@ -19,7 +19,7 @@ export default function Categories({ data }) {
                   className="item column-3 row-i"
                   key={`category-${categoryIndex}-item-${index}`}
                 >
-                  <Fade bottom delay={300 * index}>
+                  <Fade bottom delay={300 * index} triggerOnce>
                     <div className="card">
                       {item.isPopular && (
                         <div className="tag">

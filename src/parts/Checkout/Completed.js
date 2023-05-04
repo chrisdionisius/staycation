@@ -1,10 +1,10 @@
 import React from "react";
 import CompletedIllustration from "assets/images/completed.svg";
-import { Fade } from "react-reveal";
+import { Fade } from "react-awesome-reveal";
 
 export default function Completed() {
   return (
-    <Fade>
+    <Fade triggerOnce>
       <div className="container" style={{ marginBottom: 30 }}>
         <div className="row justify-content-center text-center">
           <div className="col-4">

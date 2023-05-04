@@ -2,13 +2,12 @@ import PageDetailTitle from "parts/PageDetailTitle";
 import Header from "parts/header";
 import { connect } from "react-redux"; // connects a React component to a Redux store.
 import React, { Component } from "react";
-import ItemDetails from "json/itemDetails.json";
 import FeaturedImage from "parts/FeaturedImage";
 import PageDetailDescription from "parts/PageDetailDescription";
 import BookingForm from "parts/BookingForm";
 import Testimony from "parts/Testimony";
 import Footer from "parts/Footer";
-import { Fade } from "react-reveal";
+import { Fade } from "react-awesome-reveal";
 import { checkoutBooking } from "store/actions/checkout"; // import this to call a dispatch or change the state
 import { fetchPage } from "store/actions/page";
 import Activities from "parts/Activities";
@@ -43,12 +42,12 @@ class DetailsPage extends Component {
         <section className="container">
           <div className="row">
             <div className="col-7 pr-5">
-              <Fade bottom>
+              <Fade bottom triggerOnce>
                 <PageDetailDescription data={page[match.params.id]} />
               </Fade>
             </div>
             <div className="col-5">
-              <Fade bottom>
+              <Fade bottom triggerOnce>
                 <BookingForm
                   itemDetails={page[match.params.id]}
                   startBooking={this.props.checkoutBooking}

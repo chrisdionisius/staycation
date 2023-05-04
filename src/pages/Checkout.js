@@ -10,7 +10,7 @@ import Numbering from "elements/Stepper/Numbering";
 import Meta from "elements/Stepper/Meta";
 import MainContent from "elements/Stepper/MainContent";
 import Button from "elements/Button";
-import { Fade } from "react-reveal";
+import { Fade } from "react-awesome-reveal";
 import Controller from "elements/Stepper/Controller";
 import { submitBooking } from "store/actions/checkout";
 
@@ -141,7 +141,7 @@ class Checkout extends Component {
                     data.lastName !== "" &&
                     data.email !== "" &&
                     data.phone !== "" && (
-                      <Fade>
+                      <Fade triggerOnce>
                         <Button
                           className="btn mb-3"
                           type="button"
@@ -170,7 +170,7 @@ class Checkout extends Component {
                   {data.proofPayment !== "" &&
                     data.bankName !== "" &&
                     data.bankHolder !== "" && (
-                      <Fade>
+                      <Fade triggerOnce>
                         <Button
                           className="btn mb-3"
                           type="button"
