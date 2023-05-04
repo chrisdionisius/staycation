@@ -17,7 +17,6 @@ class BookingForm extends Component {
         },
       },
     };
-    // console.log(this.state);
   }
 
   updateData = (e) => {
