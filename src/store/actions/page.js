@@ -1,12 +1,14 @@
-import axios from "axios";
 import { FETCH_PAGE } from "../types";
+import axios from "axios";
 
-export const fetchPage = (url, page) => async (dispatch) => {
-  const response = await axios.get(url);
-  dispatch({
-    type: FETCH_PAGE,
-    payload: {
-      [page]: response.data,
-    },
+export const fetchPage = (url, page) => (dispatch) => {
+  return axios.get(url).then((response) => {
+    dispatch({
+      type: FETCH_PAGE,
+      payload: {
+        [page]: response.data,
+      },
+    });
+    return response.data;
   });
 };

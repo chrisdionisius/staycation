@@ -5,7 +5,6 @@ import Button from "elements/Button";
 import { Fade } from "react-reveal";
 
 export default function Testimony({ data }) {
-  console.log(data);
   return (
     <Fade bottom>
       <section className="container">
