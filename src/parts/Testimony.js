@@ -5,6 +5,7 @@ import Button from "elements/Button";
 import { Fade } from "react-reveal";
 
 export default function Testimony({ data }) {
+  console.log(data);
   return (
     <Fade bottom>
       <section className="container">
@@ -16,7 +17,7 @@ export default function Testimony({ data }) {
             >
               <img
                 className="position-absolute"
-                src={data.imageUrl}
+                src={`${process.env.REACT_APP_HOST}/${data.imageUrl}`}
                 alt="Testimonial"
                 style={{ zIndex: 1 }}
               />
