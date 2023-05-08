@@ -45,6 +45,53 @@
 @import "spinners";
 @import "utilities";
 @import "print";
+@include media-breakpoint-down(sm) {
+  .hero-image-placeholder {
+    width: 100%;
+  }
+
+  .hero-image-placeholder img:nth-child(2) {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+  }
+
+  .container-grid {
+    .item.column-4,
+    .item.column-3 {
+      grid-column-end: span 12;
+    }
+  }
+  .testimonial-hero,
+  .testimonial-hero img {
+    width: 100%;
+  }
+
+  .testimonial-hero img:nth-child(2) {
+    top: -10px;
+    left: -10px;
+    z-index: 1;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .hero-image-placeholder {
+    width: 520px;
+    height: 410px;
+  }
+
+  .testimonial-hero,
+  .testimonial-hero img {
+    width: 365px;
+    height: 500px;
+    position: absolute;
+  }
+}
+
+.hero-image-placeholder {
+  position: relative;
+}
 
 .brand-text-icon {
   font-size: 26px;
@@ -205,12 +252,9 @@ section {
   }
 }
 
-.testimonial-hero,
-.testimonial-hero img {
-  width: 365px;
-  height: 500px;
+.testimonial-hero {
+  position: relative;
 }
-
 footer {
   border-top: 1px solid $gray-200;
   padding-top: 50px;
