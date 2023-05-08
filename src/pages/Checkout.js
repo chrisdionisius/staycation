@@ -2,7 +2,6 @@ import BookingInformation from "parts/Checkout/BookingInformation";
 import Header from "parts/header";
 import { connect } from "react-redux"; // connects a React component to a Redux store.
 import React, { Component } from "react";
-import ItemDetails from "json/itemDetails.json";
 import Payment from "parts/Checkout/Payment";
 import Completed from "parts/Checkout/Completed";
 import Stepper from "elements/Stepper";
@@ -152,7 +151,7 @@ class Checkout extends Component {
                     type="link"
                     isBlock
                     isLight
-                    href={`/properties/${ItemDetails._id}`}
+                    href={`/properties/${checkout._id}`}
                   >
                     Cancel
                   </Button>
