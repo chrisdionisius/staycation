@@ -29,14 +29,14 @@ function DetailsPage({}) {
         document.title = `Staycation | ${response.title}`;
       }
     },
-    [dispatch]
+    [dispatch, page]
   );
 
   // useEffect akan berjalan ketika ada perubahan nilai parameter
   useEffect(() => {
     window.scrollTo(0, 0);
     fnLoadPage(id);
-  }, [id]); //contoh parameternya adalah id dimana ketika [id] berubah maka akan di trigger
+  }, [id, fnLoadPage]); //contoh parameternya adalah id dimana ketika [id] berubah maka akan di trigger
 
   if (!page[id]) return null;
 
