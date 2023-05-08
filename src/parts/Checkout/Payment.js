@@ -2,7 +2,7 @@ import React from "react";
 import { InputText, InputFile } from "elements/Form";
 import logoBca from "assets/images/logo-bca.png";
 import logoMandiri from "assets/images/logo-mandiri.png";
-import { Fade } from "react-reveal";
+import { Fade } from "react-awesome-reveal";
 
 export default function Payment(props) {
   const { data, ItemDetails, checkout } = props;
@@ -10,11 +10,11 @@ export default function Payment(props) {
   const subTotal = ItemDetails.price * checkout.duration;
   const grandTotal = (subTotal * tax) / 100 + subTotal;
   return (
-    <Fade>
+    <Fade triggerOnce>
       <div className="container" style={{ marginBottom: 30 }}>
         <div className="row justify-content-center align-items-center">
           <div className="col-5 border-right py-5" style={{ paddingRight: 80 }}>
-            <Fade delay={300}>
+            <Fade delay={300} triggerOnce>
               <p className="mb-4">Transfer Pembayaran:</p>
               <p>Tax: {tax}%</p>
               <p>Sub total: ${subTotal} USD</p>
@@ -47,7 +47,7 @@ export default function Payment(props) {
             </Fade>
           </div>
           <div className="col-5 py-5" style={{ paddingLeft: 80 }}>
-            <Fade delay={600}>
+            <Fade delay={600} triggerOnce>
               <label htmlFor="proofPayment">Upload Bukti Transfer</label>
               <InputFile
                 accept="image/*"

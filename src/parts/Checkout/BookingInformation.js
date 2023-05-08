@@ -1,15 +1,15 @@
 import React from "react";
-import { Fade } from "react-reveal";
+import { Fade } from "react-awesome-reveal";
 import { InputText } from "elements/Form";
 
 export default function BookingInformation(props) {
   const { data, ItemDetails, checkout } = props;
   return (
-    <Fade>
+    <Fade triggerOnce>
       <div className="container" style={{ marginBottom: 30 }}>
         <div className="row justify-content-center align-items-center">
           <div className="col-5 border-right py-5" style={{ paddingRight: 80 }}>
-            <Fade delay={300}>
+            <Fade delay={300} triggerOnce>
               <div className="card">
                 <figure className="img-wrapper" style={{ height: 270 }}>
                   <img
@@ -44,7 +44,7 @@ export default function BookingInformation(props) {
             </Fade>
           </div>
           <div className="col-5 py-5" style={{ paddingLeft: 80 }}>
-            <Fade delay={600}>
+            <Fade delay={600} triggerOnce>
               <label htmlFor="firstName">First Name</label>
               <InputText
                 id="firstName"

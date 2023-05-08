@@ -1,15 +1,17 @@
 import React from "react";
 import BrandIcon from "parts/IconText";
 import Button from "elements/Button";
-import { Fade } from "react-reveal";
-export default function Header(props) {
+import { Fade } from "react-awesome-reveal";
+import { useLocation } from "react-router";
+export default function Header({ isCentered }) {
+  const location = useLocation();
   const getNavLinkClass = (path) => {
-    return props.location.pathname === path ? " active" : "";
+    return location.pathname === path ? " active" : "";
   };
 
-  if (props.isCentered)
+  if (isCentered)
     return (
-      <Fade>
+      <Fade triggerOnce>
         <header className="spacing-sm">
           <div className="container">
             <nav className="navbar navbar-expand-lg navbar-light">
@@ -24,7 +26,7 @@ export default function Header(props) {
 
   // return normal header
   return (
-    <Fade>
+    <Fade triggerOnce>
       <header className="spacing-sm">
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light">

@@ -10,7 +10,7 @@ import Numbering from "elements/Stepper/Numbering";
 import Meta from "elements/Stepper/Meta";
 import MainContent from "elements/Stepper/MainContent";
 import Button from "elements/Button";
-import { Fade } from "react-reveal";
+import { Fade } from "react-awesome-reveal";
 import Controller from "elements/Stepper/Controller";
 import { submitBooking } from "store/actions/checkout";
 
@@ -63,8 +63,6 @@ class Checkout extends Component {
   render() {
     const { data } = this.state;
     const { checkout, page } = this.props;
-    console.log(page, data);
-
     // check if user directly access checkout page before choosing the room :)
     if (!checkout) {
       return (
@@ -75,12 +73,7 @@ class Checkout extends Component {
           <div className="col-3">
             Pilih kamar dulu
             <div>
-              <Button
-                className="btn mt-5"
-                type="button"
-                onClick={() => this.props.history.goBack()}
-                isLight
-              >
+              <Button className="btn mt-5" type="link" href="/" isLight>
                 Back
               </Button>
             </div>
@@ -141,7 +134,7 @@ class Checkout extends Component {
                     data.lastName !== "" &&
                     data.email !== "" &&
                     data.phone !== "" && (
-                      <Fade>
+                      <Fade triggerOnce>
                         <Button
                           className="btn mb-3"
                           type="button"
@@ -170,7 +163,7 @@ class Checkout extends Component {
                   {data.proofPayment !== "" &&
                     data.bankName !== "" &&
                     data.bankHolder !== "" && (
-                      <Fade>
+                      <Fade triggerOnce>
                         <Button
                           className="btn mb-3"
                           type="button"
@@ -202,7 +195,7 @@ class Checkout extends Component {
                     isBlock
                     isPrimary
                     hasShadow
-                    href=""
+                    href="/"
                   >
                     Back to Home
                   </Button>
