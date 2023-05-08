@@ -25,7 +25,7 @@ function DetailsPage({}) {
   const fnLoadPage = useCallback(
     async (id) => {
       if (!page[id]) {
-        const response = await dispatch(fetchPage(`/detail-page/${id}`, id));
+        const response = dispatch(fetchPage(`/detail-page/${id}`, id));
         document.title = `Staycation | ${response.title}`;
       }
     },
