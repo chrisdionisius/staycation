@@ -1,73 +1,69 @@
+import FeaturedImage from "parts/FeaturedImage";
 import PageDetailTitle from "parts/PageDetailTitle";
 import Header from "parts/header";
-import { connect } from "react-redux"; // connects a React component to a Redux store.
-import React, { Component } from "react";
-import FeaturedImage from "parts/FeaturedImage";
-import PageDetailDescription from "parts/PageDetailDescription";
-import BookingForm from "parts/BookingForm";
-import Testimony from "parts/Testimony";
+import React, { useCallback, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import Footer from "parts/Footer";
-import { Fade } from "react-awesome-reveal";
-import { checkoutBooking } from "store/actions/checkout"; // import this to call a dispatch or change the state
-import { fetchPage } from "store/actions/page";
+import Testimony from "parts/Testimony";
 import Activities from "parts/Activities";
+import BookingForm from "parts/BookingForm";
+import PageDetailDescription from "parts/PageDetailDescription";
+import { fetchPage } from "store/actions/page";
+import { Fade } from "react-awesome-reveal";
 
-class DetailsPage extends Component {
-  componentDidMount() {
-    window.title = "Details Page";
+function DetailsPage({}) {
+  const page = useSelector((state) => state.page);
+  const dispatch = useDispatch();
+  const { id } = useParams();
+
+  const breadcrumb = [
+    { pageTitle: "Home", pageHref: "/" },
+    { pageTitle: "House Details", pageHref: "" },
+  ];
+
+  const fnLoadPage = useCallback(
+    async (id) => {
+      if (!page[id]) {
+        const response = await dispatch(fetchPage(`/detail-page/${id}`, id));
+        document.title = `Staycation | ${response.title}`;
+      }
+    },
+    [dispatch]
+  );
+
+  // useEffect akan berjalan ketika ada perubahan nilai parameter
+  useEffect(() => {
     window.scrollTo(0, 0);
+    fnLoadPage(id);
+  }, [id]); //contoh parameternya adalah id dimana ketika [id] berubah maka akan di trigger
 
-    if (!this.props.page[this.props.match.params.id]) {
-      this.props.fetchPage(
-        `/detail-page/${this.props.match.params.id}`,
-        this.props.match.params.id
-      );
-    }
-  }
+  if (!page[id]) return null;
 
-  render() {
-    const { page, match } = this.props;
-    if (!page[match.params.id]) {
-      return null;
-    }
-    const breadcrumb = [
-      { pageTitle: "Home", pageHref: "/" },
-      { pageTitle: "House Details", pageHref: "" },
-    ];
-    return (
-      <>
-        <Header {...this.props} />
-        <PageDetailTitle breadcrumb={breadcrumb} data={page[match.params.id]} />
-        <FeaturedImage data={page[match.params.id].imageId} />
-        <section className="container">
-          <div className="row">
-            <div className="col-7 pr-5">
-              <Fade bottom triggerOnce>
-                <PageDetailDescription data={page[match.params.id]} />
-              </Fade>
-            </div>
-            <div className="col-5">
-              <Fade bottom triggerOnce>
-                <BookingForm
-                  itemDetails={page[match.params.id]}
-                  startBooking={this.props.checkoutBooking}
-                />
-              </Fade>
-            </div>
+  return (
+    <>
+      <Header />
+      <PageDetailTitle breadcrumb={breadcrumb} />
+      <FeaturedImage />
+      <section className="container">
+        <div className="row">
+          <div className="col-7 pr-5">
+            <Fade bottom triggerOnce>
+              <PageDetailDescription data={page[id]} />
+            </Fade>
           </div>
-        </section>
-        <Activities data={page[match.params.id].activityId} />
-        <Testimony data={page[match.params.id].testimonial} />
-        <Footer />
-      </>
-    );
-  }
+          <div className="col-5">
+            <Fade bottom triggerOnce>
+              <BookingForm />
+            </Fade>
+          </div>
+        </div>
+      </section>
+      <Activities data={page[id].activityId} />
+      <Testimony data={page[id].testimonial} />
+      <Footer />
+    </>
+  );
 }
 
-const mapStateToProps = (state) => ({
-  page: state.page,
-});
-
-export default connect(mapStateToProps, { checkoutBooking, fetchPage })(
-  DetailsPage
-);
+export default DetailsPage;

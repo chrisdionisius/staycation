@@ -1,8 +1,20 @@
 import Breadcrumb from "elements/Breadcrumb";
 import React from "react";
 import { Fade } from "react-awesome-reveal";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router";
 
-export default function PageDetailTitle({ data, breadcrumb }) {
+export default function PageDetailTitle({ breadcrumb }) {
+  // Select the `page` property from the Redux store
+  const page = useSelector((state) => state.page);
+
+  // Extract the `id` parameter from the current route's URL
+  const { id } = useParams();
+
+  // Create a `data` constant based on the `page` and `id` constants
+  // Use optional chaining to safely access nested properties of `page`
+  // If no image ID is found, return an empty array
+  const data = page?.[id] || [];
   return (
     <section className="container spacing-sm">
       <Fade bottom triggerOnce>
