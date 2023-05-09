@@ -72,7 +72,12 @@ class Checkout extends Component {
           <div className="col-3">
             Pilih kamar dulu
             <div>
-              <Button className="btn mt-5" type="link" href="/" isLight>
+              <Button
+                className="btn mt-5"
+                type="button"
+                onClick={() => window.history.back()}
+                isLight
+              >
                 Back
               </Button>
             </div>
