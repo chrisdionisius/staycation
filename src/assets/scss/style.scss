@@ -58,8 +58,10 @@
   }
 
   .container-grid {
+    .item.column-3,
     .item.column-4,
-    .item.column-3 {
+    .item.column-5,
+    .item.column-7 {
       grid-column-end: span 12;
     }
   }
@@ -72,6 +74,9 @@
     top: -10px;
     left: -10px;
     z-index: 1;
+  }
+  .card-booking {
+    padding: 32px;
   }
 }
 
@@ -86,6 +91,9 @@
     width: 365px;
     height: 500px;
     position: absolute;
+  }
+  .card-booking {
+    padding: 60px 80px;
   }
 }
 
