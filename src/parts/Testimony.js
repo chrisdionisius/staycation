@@ -9,22 +9,21 @@ export default function Testimony({ data }) {
     <Fade bottom triggerOnce>
       <section className="container">
         <div className="row align-items-center">
-          <div className="col-auto" style={{ marginRight: 60 }}>
+          <div className="col-12 col-lg-auto mb-4">
             <div
               className="testimonial-hero"
-              style={{ margin: `30px 0 0 30px` }}
+              // style={{ margin: `30px 0 0 30px` }}
             >
               <img
-                className="position-absolute"
+                className="position-relative"
                 src={`${process.env.REACT_APP_HOST}/${data.imageUrl}`}
                 alt="Testimonial"
-                style={{ zIndex: 1 }}
+                style={{ zIndex: 2 }}
               />
               <img
                 className="position-absolute"
                 src={TestimonyAccent}
-                alt="Testimonial"
-                style={{ margin: "-30px 0 0 -30px" }}
+                alt="Testimonial frame"
               />
             </div>
           </div>
